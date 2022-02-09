@@ -38,7 +38,7 @@ class PostsController extends Controller
 
             $blog->save();
 
-    	return redirect()->route('post.index')->with('success','post successfull.');
+    	return redirect()->route('home.index')->with('success','post successfull.');
     	//dd(request()->all());
     }
     function show(){
