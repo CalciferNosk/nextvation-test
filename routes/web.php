@@ -39,4 +39,8 @@ Route::get('/post', [App\Http\Controllers\PostsController::class ,'show'])->name
 Route::get('/messages', [App\Http\Controllers\MessagesController::class ,'index'])->name('messages.index');
 Route::get('/home',[BlogController::class ,'show'])->name('home.index');
 //Route::get('/home',[BlogCategoryController::class ,'show'])->name('home.index');
+Route::get('/edit/{id}', [App\Http\Controllers\PostsController::class ,'editById'])->name('edit.editById');
+Route::post('/edit',[App\Http\Controllers\PostsController::class, 'update']);
 
+
+Route::get('/delete/{id}', [App\Http\Controllers\PostsController::class ,'delete'])->name('delete');

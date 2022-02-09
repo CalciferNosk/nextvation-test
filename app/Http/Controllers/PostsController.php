@@ -46,5 +46,25 @@ class PostsController extends Controller
         $data2 =  Categories::all();
         return view('post',['data2'=>$data2]);
     }
-    
+    function editById($id){
+
+        $data2 =  Post::find($id);
+        return view('edit',['data2'=>$data2]);
+    }
+
+    function update(Request $Request){
+
+            $data=Post::find($Request->id);
+            $data->title=$Request->title;
+            $data->description=$Request->description;
+            $data->content=$Request->content;
+            $data->save();
+            return redirect('home');
+    }
+    function delete($id){
+
+        $data=Post::find($id);
+        $data->delete();
+        return redirect('home');
+    }
 }

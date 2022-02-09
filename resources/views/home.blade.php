@@ -11,8 +11,16 @@
                     <div class="card mb-4">
                         <a href="#!"><img class="card-img-top" src="{{URL::to('images/'.$data->img_link.'')}}" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">{{$mysqldate = date('g:i a \o\n l jS F Y', strtotime($data['created_at']))}}</div>
-                            <h2 class="card-title">{{ $data['title']}}</h2>
+                            <div class="small text-muted">{{$mysqldate = date('g:i a \o\n l jS F Y', strtotime($data['created_at']))}}</div> 
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"href="{{ route('edit.editById', ['id' => $data['id']]) }}"> edit</a>
+                                    <a class="dropdown-item" href="{{ route('delete', ['id' => $data['id']]) }}"> delete</a>
+                                </div>
+                            <h2 class="card-title">{{ $data['title']}}  
+                            </h2>
+                               
                             <p class="card-text">{{ $data['description']}}</p>
                             
                             <a class="btn btn-primary" href="{{ route('article.show', ['id' => $data['id']]) }}">Read more →</a>
